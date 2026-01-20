@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Is_SMS_Reminder_Current</name>
+        <label>Is SMS Reminder Current</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Is_SMS_Reminder_Current_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SMS_Reminder_Is_Current</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <description>True if current time is before the reminder time plus the padding.</description>
+        <name>SMS_Reminder_Is_Current</name>
+        <dataType>Boolean</dataType>
+        <expression>{!$Record.SMS_Reminder_Time__c} &gt;= ({!$Flow.CurrentDateTime} - {!SMS_Reminder_Time_Padding})</expression>
+    </formulas>
+    <formulas>
+        <description>Padding time to account for flow processing delays when validating scheduled SMS reminders. If current time is past the scheduled time + padding, the message will not be sent.</description>
+        <name>SMS_Reminder_Time_Padding</name>
+        <dataType>Number</dataType>
+        <expression>/* Minutes expressed as fraction of a day */
+/* (N/1440) where N is the number of minutes padding and 1440 is the number of minutes per day */
+15/1440</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>Event - Schedule SMS Reminder {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Event - Schedule SMS Reminder</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SMS_Reminder_Time__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>WhoId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Event</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>Schedule_SMS_Notification</name>
+            <connector>
+                <targetReference>Is_SMS_Reminder_Current</targetReference>
+            </connector>
+            <label>Schedule SMS Notification</label>
+            <offsetNumber>0</offsetNumber>
+            <offsetUnit>Minutes</offsetUnit>
+            <recordField>SMS_Reminder_Time__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>InvalidDraft</status>
+</Flow>
