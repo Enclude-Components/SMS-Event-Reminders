@@ -1,0 +1,16 @@
+minimum_cumulusci_version: '4.8.0'
+project:
+    name: SMS-Event-Reminders
+    package:
+        name: SMS-Event-Reminders
+        api_version: '65.0'
+    dependencies:
+        - github: 'https://github.com/EncludeLtd/Gateway-SMS-Package'
+    git:
+        default_branch: 'main'
+    source_format: sfdx
+
+tasks:
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
