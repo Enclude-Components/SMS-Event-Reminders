@@ -18,6 +18,9 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <connector>
+                <targetReference>Send_Event_SMS_Notification</targetReference>
+            </connector>
             <label>Yes</label>
         </rules>
     </decisions>
@@ -64,9 +67,9 @@
         <filterLogic>and</filterLogic>
         <filters>
             <field>SMS_Reminder_Time__c</field>
-            <operator>IsChanged</operator>
+            <operator>IsNull</operator>
             <value>
-                <booleanValue>true</booleanValue>
+                <booleanValue>false</booleanValue>
             </value>
         </filters>
         <filters>
@@ -91,5 +94,18 @@
         </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>InvalidDraft</status>
+    <status>Active</status>
+    <subflows>
+        <name>Send_Event_SMS_Notification</name>
+        <label>Send Event SMS Notification</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <flowName>SUBFLOW_Send_Event_SMS_Notification</flowName>
+        <inputAssignments>
+            <name>Event</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
 </Flow>
