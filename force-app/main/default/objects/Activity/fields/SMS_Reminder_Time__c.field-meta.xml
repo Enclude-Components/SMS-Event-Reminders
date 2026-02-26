@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SMS_Reminder_Time__c</fullName>
+    <description>Schedules an SMS reminder to be sent to the Event&apos;s participant. No message will be sent if the participant&apos;s Mobile Phone is not set or is invalid, or if the selected time is in the past.</description>
+    <inlineHelpText>Schedules an SMS reminder to be sent to the Event&apos;s participant. No message will be sent if the participant&apos;s Mobile Phone is not set or is invalid, or if the selected time is in the past.</inlineHelpText>
+    <label>SMS Reminder Time</label>
+    <required>false</required>
+    <type>DateTime</type>
+</CustomField>
