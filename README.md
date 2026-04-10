@@ -28,7 +28,6 @@ If SMS notifications should be sent at other parts of the Event's lifecycle, suc
 
 ## Prerequisites
 
-- [CumulusCI](https://cumulusci.readthedocs.io/en/latest/tutorial.html) installed and configured
 - The [Enclude Gateway SMS](https://github.com/EncludeLtd/Gateway-SMS-Package) package must be installed in the target org before deploying this project
 
 ## Objects & Fields
@@ -53,6 +52,9 @@ If SMS notifications should be sent at other parts of the Event's lifecycle, suc
 Assign this permission set to any users who should be able to schedule SMS reminders.
 
 ## Development
+
+> [!WARNING]
+> This section is for developers only.
 
 1. [Set up CumulusCI](https://cumulusci.readthedocs.io/en/latest/tutorial.html)
 2. Run `cci flow run dev_org --org dev` to deploy this project.
