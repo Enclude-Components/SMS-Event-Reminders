@@ -163,7 +163,12 @@ CASE(MONTH(DATEVALUE({!Event.EndDateTime})),
   12, &quot;December&quot;,
   &quot;&quot;
 ) + &quot; &quot; +
-TEXT(YEAR(DATEVALUE({!Event.EndDateTime})))</expression>
+TEXT(YEAR(DATEVALUE({!Event.EndDateTime}))) +
+&quot; at &quot; +
+TEXT(HOUR(TIMEVALUE({!Event.EndDateTime}))) + &quot;:&quot; +
+IF(MINUTE(TIMEVALUE({!Event.EndDateTime})) &lt; 10,
+  &quot;0&quot; + TEXT(MINUTE(TIMEVALUE({!Event.EndDateTime}))),
+  TEXT(MINUTE(TIMEVALUE({!Event.EndDateTime}))))</expression>
     </formulas>
     <formulas>
         <name>Event_Formatted_Start_Date_Time</name>
@@ -194,7 +199,12 @@ CASE(MONTH(DATEVALUE({!Event.StartDateTime})),
   12, &quot;December&quot;,
   &quot;&quot;
 ) + &quot; &quot; +
-TEXT(YEAR(DATEVALUE({!Event.StartDateTime})))</expression>
+TEXT(YEAR(DATEVALUE({!Event.StartDateTime}))) +
+&quot; at &quot; +
+TEXT(HOUR(TIMEVALUE({!Event.StartDateTime}))) + &quot;:&quot; +
+IF(MINUTE(TIMEVALUE({!Event.StartDateTime})) &lt; 10,
+  &quot;0&quot; + TEXT(MINUTE(TIMEVALUE({!Event.StartDateTime}))),
+  TEXT(MINUTE(TIMEVALUE({!Event.StartDateTime}))))</expression>
     </formulas>
     <formulas>
         <name>SMS_Body</name>

@@ -13,6 +13,9 @@
         <label>Was Success</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Send_SMS_Message_Notification_Error</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Was_Success_Yes</name>
@@ -94,6 +97,89 @@
             </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Send</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Send_SMS_Message_Notification_Error</name>
+        <label>Send SMS Message Notification Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Send_SMS_Message_Notification_Error_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Send_SMS_Message_Notification_Error_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Send_SMS_Message_Notification_Error_Message</name>
+                    <extensionName>flowruntime:message</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>messageType</name>
+                        <value>
+                            <stringValue>error</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>messageContent</name>
+                        <value>
+                            <stringValue>Error sending notification. Provide your sys admin the details:</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <fields>
+                    <name>Send_SMS_Message_Notification_Error_Display</name>
+                    <fieldText>&lt;p&gt;{!Send_Event_SMS_Notification.Error_Message}&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                    <styleProperties>
+                        <styleSettings>
+                            <propertyName>--flowruntime-c-displaytext-border-color</propertyName>
+                            <propertyValue>
+                                <stringValue>#F3F3F3</stringValue>
+                            </propertyValue>
+                        </styleSettings>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
