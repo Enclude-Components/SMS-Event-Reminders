@@ -19,6 +19,22 @@ flows:
   config_dev:
     steps:
       3:
+        task: deploy
+        options:
+          path: unpackaged/config/dev
+      4:
         task: assign_permission_sets
         options:
-          api_names: "SMS_Event_Reminders"
+          api_names: "SMS_Admin,Gateway_SMS_Mock_API_Credentials,SMS_Event_Reminders"
+      5:
+        task: execute_anon
+        options:
+          path: unpackaged/config/dev/scripts/create_sms_gateway_user.apex
+      6:
+        task: execute_anon
+        options:
+          path: unpackaged/config/dev/scripts/configure_sms_settings.apex
+      7:
+        task: deploy
+        options:
+          path: unpackaged/config/dev-post
