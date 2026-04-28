@@ -29,7 +29,7 @@
         <description>True if current time is before the reminder time plus the padding.</description>
         <name>SMS_Reminder_Is_Current</name>
         <dataType>Boolean</dataType>
-        <expression>{!$Record.SMS_Reminder_Time__c} &gt;= ({!$Flow.CurrentDateTime} - {!SMS_Reminder_Time_Padding})</expression>
+        <expression>{!$Record.SMS_Reminder_Date_Time__c} &gt;= ({!$Flow.CurrentDateTime} - {!SMS_Reminder_Time_Padding})</expression>
     </formulas>
     <formulas>
         <description>Padding time to account for flow processing delays when validating scheduled SMS reminders. If current time is past the scheduled time + padding, the message will not be sent.</description>
@@ -66,7 +66,7 @@
         <locationY>0</locationY>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>SMS_Reminder_Time__c</field>
+            <field>SMS_Reminder_Date_Time__c</field>
             <operator>IsNull</operator>
             <value>
                 <booleanValue>false</booleanValue>
@@ -89,7 +89,7 @@
             <label>Schedule SMS Notification</label>
             <offsetNumber>0</offsetNumber>
             <offsetUnit>Minutes</offsetUnit>
-            <recordField>SMS_Reminder_Time__c</recordField>
+            <recordField>SMS_Reminder_Date_Time__c</recordField>
             <timeSource>RecordField</timeSource>
         </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>

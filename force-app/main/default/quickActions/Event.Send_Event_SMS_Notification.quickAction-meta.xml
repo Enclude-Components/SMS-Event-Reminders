@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Manually sends (or resends) an SMS notification for an Event.</description>
+    <flowDefinition>SCREEN_Send_Event_SMS_Notification</flowDefinition>
+    <label>Send Event SMS Notification</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

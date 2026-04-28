@@ -2,15 +2,39 @@
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Gives access to SMS Event notification and reminder functionality</description>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.SMS_Reminder_Time__c</field>
+        <editable>false</editable>
+        <field>Event.SMS_Reminder_Date_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Task.SMS_Reminder_Time__c</field>
+        <field>Event.SMS_Reminder_Time_Offset__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.SMS_Reminder_Time_Unit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Task.SMS_Reminder_Date_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.SMS_Reminder_Time_Offset__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.SMS_Reminder_Time_Unit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <flowAccesses>
+        <enabled>true</enabled>
+        <flow>SCREEN_Send_Event_SMS_Notification</flow>
+    </flowAccesses>
     <hasActivationRequired>false</hasActivationRequired>
     <label>SMS Event Reminders</label>
 </PermissionSet>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SMS_Reminder_Date_Time__c</fullName>
+    <formula>IF(
+    ISBLANK(SMS_Reminder_Time_Offset__c) || ISPICKVAL(SMS_Reminder_Time_Unit__c, &quot;&quot;) || ISBLANK(ActivityDateTime),
+    NULL,
+    IF(
+        ISPICKVAL(SMS_Reminder_Time_Unit__c, &quot;Hours Before&quot;),
+        ActivityDateTime - (SMS_Reminder_Time_Offset__c / 24),
+        ActivityDateTime - SMS_Reminder_Time_Offset__c
+    )
+)</formula>
+    <label>SMS Reminder Date/Time</label>
+    <required>false</required>
+    <type>DateTime</type>
+</CustomField>
