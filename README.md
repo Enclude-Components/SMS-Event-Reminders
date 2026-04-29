@@ -2,6 +2,13 @@
 
 Automatically sends SMS reminders to Event participants. Supports two modes: a **scheduled reminder** sent a configurable number of hours or days before the event, and an **immediate notification** sent at the point of record creation. This package depends on [Enclude Gateway SMS](https://github.com/EncludeLtd/Gateway-SMS-Package).
 
+<a href="https://github.com/Enclude-Components/SMS-Event-Reminders/releases/latest">
+  <img
+    alt="Install Latest Release"
+    src="https://img.shields.io/badge/Install%20Latest%20Release-238636?style=for-the-badge&logoColor=white&logo=DocuSign"
+  >
+</a>
+
 ## How It Works
 
 ### Scheduled Reminder
