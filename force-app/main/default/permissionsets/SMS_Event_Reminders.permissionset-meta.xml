@@ -17,6 +17,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.Send_SMS_on_Creation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Task.SMS_Reminder_Date_Time__c</field>
         <readable>true</readable>
@@ -29,6 +34,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.SMS_Reminder_Time_Unit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Send_SMS_on_Creation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <flowAccesses>
