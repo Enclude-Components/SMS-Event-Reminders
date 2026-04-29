@@ -107,5 +107,6 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </subflows>
 </Flow>
