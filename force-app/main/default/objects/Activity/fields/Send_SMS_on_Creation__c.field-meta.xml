@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_SMS_on_Creation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If ticked, an SMS notification will be sent to the Contact. This has no effect if updated after a record has been created. To resend an SMS notification, use the action button instead.</description>
+    <inlineHelpText>If ticked, an SMS notification will be sent to the Contact. This has no effect if updated after a record has been created. To resend an SMS notification, use the action button instead.</inlineHelpText>
+    <label>Send SMS on Creation</label>
+    <type>Checkbox</type>
+</CustomField>
